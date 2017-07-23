@@ -96,6 +96,8 @@ endfunction
 
 call s:InitVar('g:Lf_ShortcutF', '<Leader>f')
 call s:InitVar('g:Lf_ShortcutB', '<Leader>b')
+call s:InitVar('g:Lf_SearchTagInAFile', '<Leader>t')
+call s:InitVar('g:Lf_SearchTag', '<Leader>gt')
 call s:InitVar('g:Lf_WindowPosition', 'bottom')
 call s:InitVar('g:Lf_WindowHeight', '0.5')
 call s:InitVar('g:Lf_TabpagePosition', 2)
@@ -272,3 +274,12 @@ try
 catch /^Vim\%((\a\+)\)\=:E227/
 endtry
 
+try
+    exec 'nnoremap <silent><unique> ' g:Lf_SearchTagInAFile ':<C-U>LeaderfBufTag<CR>'
+catch /^Vim\%((\a\+)\)\=:E227/
+endtry
+
+try
+    exec 'nnoremap <silent><unique> ' g:Lf_SearchTag ':<C-U>LeaderfTag<CR>'
+catch /^Vim\%((\a\+)\)\=:E227/
+endtry
